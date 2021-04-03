@@ -11,15 +11,19 @@
 <body>
     <div class="container-sm">
         <h2>taskList!</h2>
-        <input id="task", type="text">
-        <button id="addbtn">Add!</button>
-        <ul id="list", class="list-group list-group-flush">
+        
+        <div id=btngrp class="input-group mb-3">
+            <input id="task" class="form-control" type="text" placeholder="Add new task..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button id="button-addon2" class="btn btn-primary">Add!</button>
+        </div>
+
+        <ul id="list" class="list-group list-group-flush">
         </ul>
     </div>
     <script>
-        let tasks = [""];
+        let tasks = [];
         let list = document.getElementById("list");
-        let addBtn = document.getElementById("addbtn")
+        let addBtn = document.getElementById("button-addon2")
         
         tasks.forEach(addWork);
         
@@ -27,7 +31,7 @@
             let li = document.createElement("li");
             let text = document.createTextNode(t);
             let att = document.createAttribute("class");
-            att.value= "list-group-item";
+            att.value= "list-group-item list-group-item-dark";
             li.appendChild(text);
             list.appendChild(li);
             li.setAttributeNode(att);
@@ -36,14 +40,29 @@
 
         addBtn.addEventListener("click", ()=>{
             let task = document.getElementById("task").value;
-            tasks.push(task);
-            console.log(tasks); 
-            addWork(task);          
-        })
+            if (task!=""){
+                tasks.push(task);
+                //console.log(tasks); 
+                addWork(task);   ;
+            }          
+        });
+
         //console.log(tasks[0]);
         //console.log(tasks[0].toString());
     </script>
     <style>
+        body{
+            background-color: #222;
+        }
+        h2{
+            color: #DDD;
+        }
+        #btngrp{
+            width: 500px;
+        }
+        li{
+            color: #222;
+        }
     </style>
 </body>
 </html>
