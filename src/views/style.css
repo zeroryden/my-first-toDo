@@ -2,11 +2,15 @@
     background-color: #333;
 }
 div{
-    background-color: #EEE;
+    background-color: #FFF;
 }
 h2{
     color: #111;
 }
-li{
-    color: #333;
+#container{
+    display: block;
+    width: 500px;
+}
+.marIcon{
+    margin-left: 20px;
 }
