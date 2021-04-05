@@ -1,4 +1,12 @@
-
+/*  NUEVO OBJETIVO
+    NUESTRA NUEVA META EN ESTA RAMA "DEV" VA A SER IMPLEMENTAR MONGODB
+    PARA GUARDAR LOS DATOS, CONSIDERANDO QUE ESTA ES UNA HERRAMIENTA PODEROSA
+    PARA LA FUNCION ACTUAL DE LA APP, DE MOMENTO, SE ME OCURRE QUE SE PODRIA
+    INLCUIR LA OPCION DE AGREGAR UN DETALLE, AUNQUE PRACTICAMENTE ESTARIAMOS 
+    CREANDO UN CRUD... 
+    QUIZA SE NOS VA UN POCO DE LAS MANOS EN CUANTO A CONOCIMIENTOS ACTUALES...
+    YA VEREMOS...
+*/
 //ALMACENAMIENTO DE DATOS EN ARRAY GUARDANDO EN LOCALSTORAGE
 let list = document.getElementById("list");
 let addBtn = document.getElementById("button-addon2");
@@ -24,9 +32,9 @@ function addWork(t,i){
   let attIcon = document.createAttribute("class");
   let attValue = document.createAttribute("value");
   
-  idLi.value= i;
-  attIcon.value= "fas fa-trash marIcon";
-  attLi.value= "list-group-item";
+  idLi.value = i;
+  attIcon.value = "fas fa-trash marIcon";
+  attLi.value = "list-group-item";
   attValue.value = i
   
   li.appendChild(text);
@@ -55,5 +63,5 @@ addBtn.addEventListener("click", ()=>{
     tasks.push(task);
     addWork(task, id);
   };          
-})
+});
 //SIGUE CODEANDO... VAS A VER LO QUE PASA. :)
