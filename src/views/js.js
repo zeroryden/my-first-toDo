@@ -1,9 +1,20 @@
-let tasks = [];
+
+//ALMACENAMIENTO DE DATOS EN ARRAY GUARDANDO EN LOCALSTORAGE
 let list = document.getElementById("list");
-let addBtn = document.getElementById("button-addon2")
-        
-tasks.forEach(addWork);
-        
+let addBtn = document.getElementById("button-addon2");
+
+let tasks = [];
+//COMPROBANDO SI EXISTE DATOS PREVIOS GUARDADOS
+if(!localStorage.getItem('tasksLog')){
+  tasks.forEach(addWork);
+} else {
+  tasksLog = localStorage.getItem('tasksLog');
+  tasks = JSON.parse(tasksLog);
+  tasks.forEach(addWork);
+};
+
+//CREANDO TODA LA ESTRCUTURA DEL LISTADO, OPCION PARA ELIMINAR TAREAS 
+//Y EL GUARDADO EN LOCALSTORAGE... DEBERIA DE DIVIDIR O "COMPONENTAR" CADA FUNCION...      
 function addWork(t,i){
   let li = document.createElement("li");
   let text = document.createTextNode(t);
@@ -30,9 +41,12 @@ function addWork(t,i){
     let x = idTask.id;
     list.removeChild(idTask);
     tasks.splice(x,1);
+    localStorage.setItem('tasksLog', JSON.stringify(tasks));
   });
+  localStorage.setItem('tasksLog', JSON.stringify(tasks));
 }
 
+//FUNCION DEL BOTON ADD!
 addBtn.addEventListener("click", ()=>{
   let task = document.getElementById("task").value;
   let id;
@@ -42,3 +56,4 @@ addBtn.addEventListener("click", ()=>{
     addWork(task, id);
   };          
 })
+//SIGUE CODEANDO... VAS A VER LO QUE PASA. :)
